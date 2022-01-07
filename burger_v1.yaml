@@ -1,0 +1,105 @@
+openapi: 3.0.0
+info:
+  title: BurgerAPI-V1
+  version: '1.0'
+  description: A Simple API to illustrate the Concepts of API-First Approach
+  contact:
+    name: Federico
+    email: federico@autodesk.com
+servers:
+  - url: 'https://api-uat.autodesk.com.au'
+    description: This is our UAT server
+paths:
+  '/v1/burgers/{burgerId}':
+    parameters:
+      - schema:
+          type: string
+        name: burgerId
+        in: path
+        required: true
+    get:
+      summary: Get Burger Info by Burger Id
+      tags: []
+      responses:
+        '200':
+          description: Burger Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Burger'
+              examples:
+                Veg Haloumi Burger:
+                  value:
+                    burgerId: bugger101
+                    burgerName: Haloumi Burger
+                    burgerType: Veg
+                    ingredients: da da da
+                    price: 10
+      operationId: getBurgerByBurgerId
+      description: Retrieve the information of the burger with the matching burger ID.
+      parameters: []
+  /v1/burgers:
+    post:
+      summary: Create a New Burger
+      operationId: createBurger
+      responses:
+        '201':
+          description: Burger Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Burger'
+              examples:
+                New Burger Non-Veg Chicken Burger:
+                  value:
+                    burgerId: bugger102
+                    burgerName: Chicken Burger
+                    burgerType: Non-Veg
+                    ingredients: da da da
+                    price: 10
+        '400':
+          description: Missing Required Information
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Burger'
+            examples:
+              Create a Chicken Burger:
+                value:
+                  burgerName: Chicken Burger
+                  burgerType: Non-Veg
+                  ingredients: da da da
+                  price: 10
+        description: Post the necessary fields for the API to create a new Burger.
+      description: Create a new Burger.
+      x-internal: false
+    parameters: []
+components:
+  schemas:
+    Burger:
+      title: Burger
+      type: object
+      description: This is a how we define a burger midel in JSON format
+      x-examples:
+        Haloumi Burger:
+          burgerId: bugger101
+          burgerName: Haloumi Buerget
+          burgerType: Veg
+          ingredients: da da da
+          price: 10
+      properties:
+        burgerId:
+          type: string
+        burgerName:
+          type: string
+        burgerType:
+          type: string
+        ingredients:
+          type: string
+        price:
+          type: integer
+      required:
+        - burgerName
+        - burgerType
+        - price
