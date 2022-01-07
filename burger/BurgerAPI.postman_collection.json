@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "8b6ff4c6-56ea-4804-903c-c402f8d94876",
+		"name": "BurgerAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createBurger",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"burgerName\" : \"Chicken Burger\",\n    \"burgerType\" : \"Non-Vegan\",\n     \"ingredients\" : \"Secret\",\n     \"price\" : 15\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/burgers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"burgers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBurgerByBurgerID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/burgers/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"burgers",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
