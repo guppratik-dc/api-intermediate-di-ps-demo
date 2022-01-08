@@ -1,0 +1,8 @@
+{
+  "basePackage": "com.autodesk.api",
+  "configPackage": "com.autodesk.api.config",
+  "apiPackage": "com.autodesk.api.controllers",
+  "modelPackage": "com.autodesk.api.model",
+  "groupId": "com.autodesk",
+  "artifactId": "burger-api"
+}
