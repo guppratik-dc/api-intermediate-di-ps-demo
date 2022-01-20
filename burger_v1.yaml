@@ -5,9 +5,9 @@ info:
   description: An API to illustrate the Concepts of API-First Approach
   contact:
     name: Federico
-    email: Adam@auto.com
+    email: federico@auto.com
 servers:
-  - url: 'https://api-uat.auto.com.au'
+  - url: 'https://api-test.auto.com'
     description: This is our UAT server
 paths:
   '/v1/burgers/{burgerId}':
