@@ -4,7 +4,7 @@ info:
   version: '1.0'
   description: An API to illustrate the Concepts of API-First Approach
   contact:
-    name: Adam
+    name: Federico
     email: Adam@auto.com
 servers:
   - url: 'https://api-uat.auto.com.au'
