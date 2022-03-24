@@ -4,8 +4,8 @@ info:
   version: '1.0'
   description: An API to illustrate the Concepts of API-First Approach
   contact:
-    name: John H
-    email: johnny@auto.com
+    name: Vikrant S
+    email: Vikrant@auto.com
 servers:
   - url: 'https://api-test.auto.com'
     description: This is our UAT server
