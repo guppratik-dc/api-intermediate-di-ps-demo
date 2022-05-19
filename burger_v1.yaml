@@ -7,7 +7,7 @@ info:
     name: Vikrant S
     email: Vikrant@auto.com
 servers:
-  - url: 'https://api-test.auto.com'
+  - url: 'https://api-stg.auto.com'
     description: This is our UAT server
 paths:
   '/v1/burgers/{burgerId}':
