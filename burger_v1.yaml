@@ -4,10 +4,10 @@ info:
   version: '1.0'
   description: An API to illustrate the Concepts of API-First Approach
   contact:
-    name: Samaneh S
-    email: Samaneh@auto.com
+    name: Matt B
+    email: matt@auto.com
 servers:
-  - url: 'https://api-prd.autodk.com'
+  - url: 'https://api-uat.autodk.com'
     description: This is our UAT server
 paths:
   '/v1/burgers/{burgerId}':
