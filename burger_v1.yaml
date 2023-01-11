@@ -4,8 +4,8 @@ info:
   version: '1.0'
   description: An API to illustrate the Concepts of API-First Approach
   contact:
-    name: Matt B
-    email: matt@auto.com
+    name: Goubi
+    email: Goubi@auto.com
 servers:
   - url: 'https://api-uat.autodk.com'
     description: This is our UAT server
