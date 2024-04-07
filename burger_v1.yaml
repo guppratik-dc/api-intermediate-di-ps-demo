@@ -7,8 +7,8 @@ info:
     name: Goubi
     email: Goubi@auto.com
 servers:
-  - url: 'https://api-uat.autodk.com'
-    description: This is our UAT server
+  - url: 'https://api-test.autodk.com'
+    description: This is our Test server
 paths:
   '/v1/burgers/{burgerId}':
     parameters:
