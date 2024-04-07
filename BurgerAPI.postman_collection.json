@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "8b6ff4c6-56ea-4804-903c-c402f8d94876",
-		"name": "BurgerAPI",
+		"name": "BurgerAPI_v1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
