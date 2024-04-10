@@ -1,8 +1,8 @@
 {
-  "basePackage": "com.holman.api",
-  "configPackage": "com.holman.api.config",
-  "apiPackage": "com.holman.api.controllers",
-  "modelPackage": "com.holman.api.model",
-  "groupId": "com.holman",
+  "basePackage": "com.domain.api",
+  "configPackage": "com.domain.api.config",
+  "apiPackage": "com.domain.api.controllers",
+  "modelPackage": "com.domain.api.model",
+  "groupId": "com.domain",
   "artifactId": "burger-api"
 }
