@@ -7,7 +7,7 @@ info:
     name: Goubi
     email: Goubi@auto.com
 servers:
-  - url: 'https://api-test.autodk.com'
+  - url: 'https://api-test.example.com'
     description: This is our Test server
 paths:
   '/v1/burgers/{burgerId}':
