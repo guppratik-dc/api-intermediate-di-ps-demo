@@ -31,12 +31,11 @@ jobs:
         run: |
           cd burger 
           nohup ./mvnw spring-boot:run &
-          sleep 10
-#          for attempt in {1..20}; do sleep 1; if $(curl --fail --silent localhost:8080/actuator/health | grep UP || exit 1); then echo ready; break; fi; echo waiting...; done
+          for attempt in {1..20}; do sleep 1; if [ "$(curl --fail --silent localhost:8080/actuator/health)" = '{"status":"UP"}' ]; then echo ready; break; fi; echo waiting...; done
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
           cache: npm
       - name: Install Node Dependencies
         run: npm install
