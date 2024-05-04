@@ -1,0 +1,53 @@
+name: 'Run app and tests'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+
+jobs:
+  run-app-and-tests:
+    name: Run app and tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: 8
+          cache: maven
+      - name: Start App
+        run: |
+          cd burger 
+          nohup ./mvnw spring-boot:run &
+          sleep 10
+#          for attempt in {1..20}; do sleep 1; if $(curl --fail --silent localhost:8080/actuator/health | grep UP || exit 1); then echo ready; break; fi; echo waiting...; done
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+          cache: npm
+      - name: Install Node Dependencies
+        run: npm install
+      - name: Run newman tests
+        run: |
+          newman run BurgerAPI.postman_collection.json
+      - name: Install Prism globally
+        run: npm install -g @stoplight/prism-cli
+      - name: Start Prism Mock Server
+        run: nohup prism proxy burger_v1.yaml http://localhost:8080 > prism.log &
+      - name: Invoke get burger API on Prism Mock Server
+        run: |
+          curl http://127.0.0.1:4010/v1/burgers/1
+          cat prism.log

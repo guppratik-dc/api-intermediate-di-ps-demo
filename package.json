@@ -1,0 +1,9 @@
+{
+  "name": "tests",
+  "description": "Test dependencies",
+  "version": "1.0.0",
+  "dependencies": {
+    "@stoplight/prism-cli": "^5.8.1",
+    "newman": "^6.1.2"
+  }
+}
