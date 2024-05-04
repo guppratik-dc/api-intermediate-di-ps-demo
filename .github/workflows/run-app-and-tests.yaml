@@ -21,6 +21,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Install Insomnia Cli
+        run: npm install -g @insomnia/inso
+      - name: Lint Open API Specification
+        run: |
+          nohup inso lint spec burger_v1.yaml > oas_linting.log &
+          cat oas_linting.log
       - name: Install Java
         uses: actions/setup-java@v4
         with:
