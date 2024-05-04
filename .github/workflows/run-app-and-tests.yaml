@@ -22,7 +22,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Install Insomnia Cli
-        run: npm install -g @insomnia/inso
+        run: tar -xf inso-linux-2.4.1.tar.xz
       - name: Lint Open API Specification
         run: |
           nohup inso lint spec burger_v1.yaml > oas_linting.log &
