@@ -22,7 +22,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Install Insomnia Cli
-        run: tar -xf inso-linux-2.4.1.tar.xz
+        run: |
+          wget https://github.com/Kong/insomnia/releases/download/lib%409.1.0/inso-linux-9.1.0.tar.xz 
+          tar -xf inso-linux-9.1.0.tar.xz
+          ./inso --version
       - name: Lint Open API Specification
         run: |
           nohup inso lint spec burger_v1.yaml > oas_linting.log &
