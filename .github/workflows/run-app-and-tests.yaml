@@ -51,7 +51,7 @@ jobs:
           newman run BurgerAPI.postman_collection.json
       - name: Install Prism globally
         run: npm install -g @stoplight/prism-cli
-      - name: Start Prism Mock Server
+      - name: Start Prism For Contract Testing
         run: nohup prism proxy burger_v1.yaml http://localhost:8080 > prism.log &
       - name: Invoke get burger API on Prism Mock Server
         run: |
