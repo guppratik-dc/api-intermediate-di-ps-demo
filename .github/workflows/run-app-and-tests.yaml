@@ -48,8 +48,7 @@ jobs:
       - name: Install Spectral Cli For OAS Spec Linting in CI 
         run: |
           npm install -g @stoplight/spectral-cli
-          spectral lint burger_v2.yaml --ruleset oas_https_strict_rule_yaml.yaml > spectral_logs.log
-          cat spectral_logs.log
+          spectral lint burger_v2.yaml --ruleset oas_https_strict_rule_yaml.yaml
         continue-on-error: true
       - name: Install Node Dependencies
         run: npm install
