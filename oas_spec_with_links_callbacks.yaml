@@ -1,0 +1,132 @@
+openapi: 3.0.0
+info:
+  title: Payments API with Links and Callbacks
+  version: 1.0.0
+  description: This is an example API with links and callbacks.
+paths:
+  /payments/{paymentId}:
+    get:
+      summary: Get payment by ID
+      description: Returns a payment by their ID.
+      parameters:
+        - name: paymentId
+          in: path
+          required: true
+          description: ID of the payment to retrieve.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: payment retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  paymentname:
+                    type: string
+                  email:
+                    type: string
+                  links:
+                    type: object
+                    properties:
+                      self:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                      update:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+      links:
+        paymentUpdateLink:
+          operationId: updatepayment
+          parameters:
+            paymentId: '$response.body#/id'
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    paymentname:
+                      type: string
+                    email:
+                      type: string
+    put:
+      summary: Update payment by ID
+      description: Updates a payment's information by their ID.
+      parameters:
+        - name: paymentId
+          in: path
+          required: true
+          description: ID of the payment to update.
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                paymentname:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '204':
+          description: payment updated successfully.
+  /webhooks:
+    post:
+      summary: Register a webhook
+      description: Registers a webhook for receiving notifications.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+      responses:
+        '201':
+          description: Webhook registered successfully.
+          headers:
+            Location:
+              description: The location of the created webhook.
+              schema:
+                type: string
+      callbacks:
+        notification:
+          '{$request.body#/url}':
+            post:
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        message:
+                          type: string
+              responses:
+                '204':
+                  description: Notification received successfully.
+
+#===================================================================#
+
+# In the OpenAPI Specification provided, '{$request.body#/url}' is a callback placeholder that refers to a value extracted from the incoming request body. 
+# Let's break it down:
+
+# '{$request.body#/url}': This is a callback placeholder syntax used within the OpenAPI Specification to dynamically reference a value from the incoming request. It follows the JSON Pointer syntax.
+# '$request.body#/url': This part indicates that the value is being extracted from the request body ($request.body) and specifically from the url property within the request body (#/url).
+#  So, '{$request.body#/url}' means that the URL value needed for the callback is expected to be found in the incoming request body under the url property. This provides flexibility, allowing the API to handle callbacks with dynamic URLs specified by the client when registering the webhook.                  
+
+#===================================================================#
