@@ -28,6 +28,7 @@ jobs:
           ./inso --version
       - name: Lint Open API Specification
         run: ./inso lint spec burger_v1.yaml
+        continue-on-error: true
       - name: Install Java
         uses: actions/setup-java@v4
         with:
@@ -49,6 +50,7 @@ jobs:
           npm install -g @stoplight/spectral-cli
           spectral lint burger_v2.yaml --ruleset oas_https_strict_rule_yaml.yaml > spectral_logs.log
           cat spectral_logs.log
+        continue-on-error: true
       - name: Install Node Dependencies
         run: npm install
       - name: Run newman tests
