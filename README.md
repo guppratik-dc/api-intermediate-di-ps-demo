@@ -1,6 +1,14 @@
-# api-intermediate-di-ps-demo
-Added Burger API For Demo
-Added Newman collection json file to run in Jenkins Pipeline
-Added burger_v1.yaml file
+# advanced-api-advanced-di-ps-demo
 
-Added Test CI/CD Pipeline - Test Suite using newman - In Jenkins
+1. Fix Broken API Spec - Refunds_v1.yaml as per defined Standards in your org
+2. Use Insomnia Cli for OAS Spec Linting Rules in Github Actions
+3. Use Spectral Cli for Custom Linting Rules in Github Actions
+4. Deploy/Run Java Service
+5. Use Contract Testing With Prism Cli in Github Actions
+6. USe Newman collection.json file for Functional Testingto run in CI Pipeline
+
+  TBD by Participants
+   
+1. Promote Code to upper env using CI/CD Pipeline
+
+
