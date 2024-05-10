@@ -5,7 +5,7 @@
 3. Use Spectral Cli for Custom Linting Rules in Github Actions
 4. Deploy/Run Java Service
 5. Use Contract Testing With Prism Cli in Github Actions
-6. USe Newman collection.json file for Functional Testingto run in CI Pipeline
+6. USe Newman collection.json file for Functional Testing in CI Pipeline Github Actions
 
   TBD by Participants
    
