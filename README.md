@@ -1,4 +1,4 @@
-# advanced-api-advanced-di-ps-demo
+# advanced-api-di-ps-demo
 
 1. Fix Broken API Spec - Refunds_v1.yaml as per defined Standards in your org
 2. Use Insomnia Cli for OAS Spec Linting Rules in Github Actions
