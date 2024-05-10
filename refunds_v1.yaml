@@ -1,0 +1,152 @@
+openapi: 3.0.0
+info:
+  title: Refunds
+  version: '1.0'
+  description: This is a Payments API for Refunds - Create Refund and Get RefundBy Id
+  contact:
+    name: Matt B
+    email: matt@sb.com
+  termsOfService: 'https://api.sb.com/tnc'
+servers:
+  - url: 'https://api-uat.sb.com/v1'
+    description: UAT Server
+  - url: 'https://api-stg.sb.com/v1'
+    description: STG Server
+paths:
+  '/refunds/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Get Refund Info by ID
+      tags: []
+      responses:
+        '200':
+          description: Refund Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Refund'
+              examples:
+                Sample Refund:
+                  value:
+                    id: RF101
+                    refundDate: 24/10/2022
+                    amount: $20
+                    txnId: TXN101
+                    email: matt.b@sb.com
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400BadRequest'
+      operationId: get-refunds-Id
+      description: Retrieve the information of the Refund with the matching Id.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Refund'
+            examples:
+              Sample Refund:
+                value:
+                  id: string
+                  refundDate: string
+                  amount: string
+                  txnId: string
+                  email: string
+  /refunds:
+    post:
+      summary: Create a Refund
+      operationId: create-refund
+      responses:
+        '201':
+          description: Refund Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Refund'
+              examples:
+                Sample Refund:
+                  value:
+                    id: RF101
+                    refundDate: 24/10/2022
+                    amount: $20
+                    txnId: TXN101
+                    email: matt.b@sb.com
+        '400':
+          description: Missing Required Information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400BadRequest'
+              examples:
+                example-1:
+                  value:
+                    title: 400BadRequest
+                    description: Client Side Error
+      description: Create a new refund.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Refund'
+            examples:
+              Refund Model:
+                value:
+                  id: RF101
+                  refundDate: 24/10/2022
+                  amount: $20
+                  txnId: TXN101
+                  email: matt.b@sb.com
+    parameters: []
+components:
+  schemas:
+    400BadRequest:
+      title: 400BadRequest
+      x-stoplight:
+        id: r1zzxmyonm3fo
+      type: object
+      description: Sample 400 Error Description
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+      x-examples:
+        example-1:
+          title: 400BadRequest
+          description: Client Side Error
+    Refund:
+      title: Refund
+      x-stoplight:
+        id: lgj97f7meqb9u
+      type: object
+      properties:
+        id:
+          type: string
+        refundDate:
+          type: string
+        amount:
+          type: string
+        txnId:
+          type: string
+        email:
+          type: string
+      x-examples:
+        Sample Refund:
+          id: RF101
+          refundDate: 24/10/2022
+          amount: $20
+          txnId: TXN101
+          email: matt.b@sb.com
+      description: Sample Refund
+  securitySchemes:
+    x-api-key:
+      name: API Key
+      type: apiKey
+      in: header
