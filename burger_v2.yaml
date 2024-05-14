@@ -5,7 +5,7 @@ info:
   description: An API to illustrate the Concepts of API-First Approach
   contact:
     name: Goubi
-    email: miguel@sb.com
+    email: milan@sb.com
 servers:
   - url: 'http://api-test.example.com'
     description: This is our Test server
