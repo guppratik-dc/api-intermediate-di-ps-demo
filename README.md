@@ -9,6 +9,6 @@
 
   TBD by Participants
    
-1. Promote Code to upper env using GitHub Actions in the Session
+1. Promote Code to upper env using GitHub Actions after the session
 
 
