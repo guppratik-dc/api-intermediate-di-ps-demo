@@ -9,6 +9,6 @@
 
   TBD by Participants
    
-1. Promote Code to upper env using CI/CD Pipeline
+1. Promote Code to upper env using GitHub Actions
 
 
