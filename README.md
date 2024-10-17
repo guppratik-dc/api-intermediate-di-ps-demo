@@ -7,7 +7,7 @@
 5. Use Contract Testing With Prism Cli in Github Actions
 6. USe postman collection.json file for Functional Testing in CI Pipeline Github Actions
 
-  TBD by Participants on Day 2
+  TBD by Participants on Day 3
    
 1. Promote Code to upper env using GitHub Actions after the session is over.
 
